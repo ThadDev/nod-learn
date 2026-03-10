@@ -89,7 +89,7 @@ export default function HomePage() {
           </motion.div>
 
           {/* Social proof */}
-          <div className="flex justify-center gap-10 mt-14 text-sm text-slate-400">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10 mt-14 text-sm text-slate-400">
             <div className="flex items-center gap-2">
               <Users size={16} /> 12,000+ learners
             </div>

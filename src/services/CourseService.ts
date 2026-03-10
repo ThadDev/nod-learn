@@ -108,4 +108,13 @@ export class CourseService {
             },
         })
     }
+    /**
+     * Fetch a user's course progress
+     */
+    static async getUserCourseProgress(userId: string) {
+        return prisma.courseProgress.findMany({
+            where: { userId },
+            include: { course: true },
+        })
+    }
 }
