@@ -213,15 +213,7 @@ export default function HomePage() {
                   "Protecting investments",
                 ],
               },
-              {
-                icon: Home,
-                title: "Real Estate",
-                items: [
-                  "Property investing",
-                  "REITs explained",
-                  "Evaluating ROI",
-                ],
-              },
+
             ].map((course, i) => {
 
               const Icon = course.icon
