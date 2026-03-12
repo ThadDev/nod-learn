@@ -26,8 +26,8 @@ export function Navbar() {
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container flex h-20 items-center justify-between px-6">
                 <div className="flex items-center gap-12 md:gap-10">
-                    <Link href="/" className="flex items-center ">
-                        <Image src="/logo.png" alt="Nodlearn Logo" width={60} height={60} unoptimized />
+                    <Link href="/" className="flex items-center gap-2 ">
+                        <Image src="/logo.png" alt="Nodlearn Logo" className="rounded-xl" width={40} height={40} unoptimized />
                         <span className="inline-block font-bold text-l tracking-tighter text-primary">NODLEARN<span className="text-blue-500">.</span></span>
                     </Link>
                     <nav className="hidden md:flex gap-8">

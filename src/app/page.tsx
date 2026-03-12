@@ -16,6 +16,7 @@ import {
   ChevronRight,
   ShieldCheck,
 } from "lucide-react"
+import LandingPage from "./landing/page"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -28,13 +29,11 @@ export default function HomePage() {
 
       {/* HERO */}
       <section className="relative border-b border-white/10">
-
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.15),transparent_60%)]" />
 
         <div className="relative container mx-auto px-6 py-8 max-w-6xl text-center">
-
           <Badge className="border border-white/20 bg-white/5 text-white mb-6">
-            Financial Education
+            Financial Community
           </Badge>
 
           <motion.h1
@@ -43,9 +42,9 @@ export default function HomePage() {
             animate="show"
             className="text-5xl md:text-7xl font-semibold leading-tight tracking-tight"
           >
-            Learn Modern
+            Join a Community
             <span className="block text-blue-400">
-              Investing Skills
+              Learning How to Invest
             </span>
           </motion.h1>
 
@@ -55,9 +54,10 @@ export default function HomePage() {
             animate="show"
             className="mt-6 text-lg text-slate-300 max-w-xl mx-auto"
           >
-            Nodlearn helps beginners understand how stocks,
-            crypto and real estate actually work —
-            without the hype or complicated jargon.
+            Connect with thousands of beginners learning how stocks,
+            crypto and real estate actually work. Get insights,
+            ask questions, and learn alongside others inside the
+            Nodlearn WhatsApp community.
           </motion.p>
 
           <motion.div
@@ -71,17 +71,6 @@ export default function HomePage() {
               size="lg"
               className="border border-white/20 bg-white/10 hover:bg-white/20 backdrop-blur"
             >
-              <Link href="/course">
-                Start Free Course
-              </Link>
-            </Button>
-
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border border-white/20 hover:bg-white/10"
-            >
               <Link href="/community">
                 Join WhatsApp Community
               </Link>
@@ -91,15 +80,15 @@ export default function HomePage() {
           {/* Social proof */}
           <div className="flex flex-wrap justify-center gap-6 md:gap-10 mt-14 text-sm text-slate-400">
             <div className="flex items-center gap-2">
-              <Users size={16} /> 12,000+ learners
+              <Users size={16} /> 12,000+ members
             </div>
 
             <div className="flex items-center gap-2">
-              <Star size={16} /> 4.9 rating
+              <Star size={16} /> Trusted by beginners
             </div>
 
             <div className="flex items-center gap-2">
-              <BookOpen size={16} /> Beginner friendly
+              <BookOpen size={16} /> Learn together
             </div>
           </div>
         </div>
@@ -249,7 +238,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* landing page */}
+      <LandingPage>
 
+      </LandingPage>
 
       {/* TESTIMONIALS */}
       <section className="py-28 border-b border-white/10">
@@ -312,9 +304,9 @@ export default function HomePage() {
 
 
       {/* FINAL CTA */}
-      <section className="py-32 text-center">
+      <section className="py-32 flex justify-center items-center">
 
-        <div className="container mx-auto px-6 max-w-3xl">
+        <div className="container mx-auto px-6 max-w-3xl justify-center items-center">
 
           <h2 className="text-4xl md:text-5xl font-semibold mb-6">
             Start Learning Today
@@ -324,16 +316,29 @@ export default function HomePage() {
             Join thousands of students building real financial knowledge.
           </p>
 
-          <Button
-            asChild
-            size="lg"
-            className="border border-white/20 bg-white/10 hover:bg-white/20"
-          >
-            <Link href="/course">
-              Start Free Course
-              <ChevronRight className="ml-2" size={18} />
-            </Link>
-          </Button>
+          <div className="md:flex-row flex flex-col gap-6">
+            <Button
+              asChild
+              size="lg"
+              className="border border-white/20 bg-white/10 hover:bg-white/20"
+            >
+              <Link href="/course">
+                Start Free Course
+                <ChevronRight className="ml-2" size={18} />
+              </Link>
+            </Button>
+
+            <Button
+              asChild
+              size="lg"
+              className="border border-white/20 bg-white/10 hover:bg-white/20 backdrop-blur"
+            >
+              <Link href="/community">
+                Join WhatsApp Community
+              </Link>
+            </Button>
+
+          </div>
 
         </div>
       </section>
