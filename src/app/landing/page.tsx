@@ -164,7 +164,7 @@ export default function LandingPage() {
                         Join thousands who took the first step toward financial literacy. The course is free — always.
                     </motion.p>
                     <motion.div variants={fadeUp}>
-                        <Button asChild size="xl" className="shadow-lg bg-blue-500 rounded">
+                        <Button asChild size="xl" className="shadow-lg bg-blue-500 rounded hover:bg-blue-600">
                             <Link href="/course">
                                 <Users className="h-5 w-5" /> Enroll Now — It&apos;s Free
                             </Link>
