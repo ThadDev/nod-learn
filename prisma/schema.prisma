@@ -54,6 +54,7 @@ model User {
   courseProgress CourseProgress[]
   certificates  Certificate[]
   blogPosts     BlogPost[]    @relation("UserBlogPosts")
+  examAttempts  ExamAttempt[]
 }
 
 model VerificationToken {
@@ -152,12 +153,66 @@ model Certificate {
   id               String   @id @default(cuid())
   userId           String
   user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  courseId         String
-  course           Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
-  issueDate        DateTime @default(now())
+  courseId         String?
+  course           Course?   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  examId           String?
+  exam             Exam?     @relation(fields: [examId], references: [id])
+  examAttemptId    String?  @unique
+  examAttempt      ExamAttempt? @relation(fields: [examAttemptId], references: [id])
+  issuedAt         DateTime @default(now())
   certificateCode  String   @unique
+  certificateUrl   String?
 
   @@unique([userId, courseId])
+}
+
+model Exam {
+  id          String   @id @default(cuid())
+  slug        String   @unique @default("global-certification")
+  title       String
+  duration    Int      @default(35)
+  passScore   Int      @default(70)
+  createdAt   DateTime @default(now())
+
+  questions   Question[]
+  attempts    ExamAttempt[]
+  certificates Certificate[]
+}
+
+model Question {
+  id            String   @id @default(cuid())
+  examId        String
+  exam          Exam     @relation(fields: [examId], references: [id], onDelete: Cascade)
+  question      String
+  options       Json
+  correctAnswer String
+  order         Int      @default(0)
+
+  answers       Answer[]
+}
+
+model ExamAttempt {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  examId      String
+  exam        Exam      @relation(fields: [examId], references: [id], onDelete: Cascade)
+  score       Float?
+  passed      Boolean   @default(false)
+  startedAt   DateTime  @default(now())
+  submittedAt DateTime?
+
+  answers     Answer[]
+  certificate Certificate?
+}
+
+model Answer {
+  id             String      @id @default(cuid())
+  attemptId      String
+  attempt        ExamAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  questionId     String
+  question       Question    @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  selectedAnswer String
 }
 
 model BlogPost {

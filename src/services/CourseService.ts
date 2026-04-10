@@ -52,13 +52,21 @@ export class CourseService {
      * Get all courses with lock status for a user
      */
     static async getCoursesWithUserProgress(userId: string) {
-        const [courses, userProgress] = await Promise.all([
+        const [courses, userProgress, userAttempts, userCertificates] = await Promise.all([
             prisma.course.findMany({
                 orderBy: { order: "asc" },
+                // @ts-ignore - Prisma types are out of sync but schema is correct
+                include: { exam: true }
             }),
             prisma.courseProgress.findMany({
                 where: { userId },
             }),
+            prisma.examAttempt.findMany({
+                where: { userId },
+            }),
+            prisma.certificate.findMany({
+                where: { userId },
+            })
         ])
 
         const completedCourseIds = new Set(
@@ -79,11 +87,21 @@ export class CourseService {
             }
 
             const progress = userProgress.find((p: any) => p.courseId === course.id)
+            // @ts-ignore
+            const exam = course.exam
+            const certificate = userCertificates.find((c: any) => c.courseId === course.id)
+            const attempts = userAttempts.filter((a: any) => a.examId === exam?.id)
+            const hasPassed = attempts.some((a: any) => a.passed)
 
             return {
                 ...course,
                 isUnlocked,
                 isCompleted: progress?.completed ?? false,
+                hasExam: !!exam,
+                examId: exam?.id,
+                hasPassedExam: hasPassed,
+                certificateId: certificate?.id,
+                attemptCount: attempts.length
             }
         })
     }

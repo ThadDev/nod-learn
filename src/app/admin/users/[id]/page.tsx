@@ -145,7 +145,7 @@ export default async function UserDetailPage(props: { params: Promise<{ id: stri
                                                 <Award className="w-5 h-5" />
                                             </div>
                                             <div>
-                                                <div className="text-sm font-bold">{cert.course.title}</div>
+                                                <div className="text-sm font-bold">{cert.course?.title ?? "Certification"}</div>
                                                 <div className="text-[10px] text-muted-foreground font-mono">{cert.certificateCode}</div>
                                             </div>
                                         </div>

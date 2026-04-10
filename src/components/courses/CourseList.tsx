@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Lock, CheckCircle2, PlayCircle, BookOpen, GraduationCap } from "lucide-react"
+import { Lock, CheckCircle2, PlayCircle, BookOpen, GraduationCap, ShieldCheck } from "lucide-react"
 import Link from "next/link"
 
 interface Course {
@@ -13,6 +13,11 @@ interface Course {
     title: string;
     isUnlocked: boolean;
     isCompleted: boolean;
+    hasExam?: boolean;
+    examId?: string;
+    hasPassedExam?: boolean;
+    certificateId?: string;
+    attemptCount?: number;
 }
 
 export function CourseList({ courses }: { courses: Course[] }) {
@@ -106,19 +111,32 @@ export function CourseList({ courses }: { courses: Course[] }) {
                             )}
                         </CardContent>
 
-                        <CardFooter className="pt-2 pb-8 relative z-10">
+                        <CardFooter className="pt-2 pb-8 relative z-10 flex flex-col gap-3">
                             {course.isUnlocked ? (
-                                <Link href={`/courses/${course.id}`} className="w-full">
-                                    <Button
-                                        className={`w-full h-12 rounded-2xl font-bold transition-all duration-300 ${course.isCompleted
-                                                ? "bg-white/10 border border-white/20 text-white hover:bg-white/20"
-                                                : "bg-blue-600 text-white hover:bg-blue-500 hover:scale-[1.02] shadow-lg shadow-blue-600/30"
-                                            }`}
-                                    >
-                                        <PlayCircle className="mr-2 h-5 w-5" />
-                                        {course.isCompleted ? "Review Material" : "Start Learning"}
-                                    </Button>
-                                </Link>
+                                <>
+                                    <Link href={`/courses/${course.id}`} className="w-full">
+                                        <Button
+                                            className={`w-full h-12 rounded-2xl font-bold transition-all duration-300 ${course.isCompleted
+                                                    ? "bg-white/10 border border-white/20 text-white hover:bg-white/20"
+                                                    : "bg-blue-600 text-white hover:bg-blue-500 hover:scale-[1.02] shadow-lg shadow-blue-600/30"
+                                                }`}
+                                        >
+                                            <PlayCircle className="mr-2 h-5 w-5" />
+                                            {course.isCompleted ? "Review Material" : "Start Learning"}
+                                        </Button>
+                                    </Link>
+
+                                    {course.isCompleted && course.hasExam && course.hasPassedExam && (
+                                        <div className="w-full pt-1 animate-in fade-in slide-in-from-top-2 duration-500">
+                                            <Link href={`/certificate/${course.certificateId}`} className="w-full">
+                                                <Button variant="outline" className="w-full h-12 rounded-2xl border-emerald-500/50 text-emerald-400 hover:bg-emerald-500/10 font-bold">
+                                                    <ShieldCheck className="mr-2 h-5 w-5" />
+                                                    View Certificate
+                                                </Button>
+                                            </Link>
+                                        </div>
+                                    )}
+                                </>
                             ) : (
                                 <Button
                                     disabled

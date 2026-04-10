@@ -71,9 +71,9 @@ export default function HomePage() {
               size="lg"
               className="border border-white/20 bg-white/10 hover:bg-white/20 backdrop-blur"
             >
-              <Link href="/community">
-                Join WhatsApp Community
-              </Link>
+              <a href="https://chat.whatsapp.com/Kovu9i1AyLb4nN8hInik7Y?mode=hqctcla">
+                Join Whatsapp Community
+              </a>
             </Button>
           </motion.div>
 
@@ -182,6 +182,15 @@ export default function HomePage() {
                   "How stocks work",
                   "Risk & diversification",
                   "Long-term investing",
+                ],
+              },
+               {
+                icon: ShieldCheck,
+                title: "Identifying online scams",
+                items: [
+                  "How to spot scams",
+                  "Common scam tactics",
+                  "Protecting yourself",
                 ],
               },
               {

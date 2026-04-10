@@ -9,7 +9,7 @@ import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { BookOpen, Award, TrendingUp, ChevronRight, Home } from "lucide-react"
+import { BookOpen, Award, TrendingUp, ChevronRight, Home, GraduationCap } from "lucide-react"
 import { LogoutButton } from "@/components/layout/LogoutButton"
 
 export default async function DashboardPage() {
@@ -149,12 +149,28 @@ export default async function DashboardPage() {
                                     </div>
                                 </div>
 
-                                <Button asChild size="lg" className="w-full sm:w-auto h-14 rounded-2xl px-8 font-black bg-blue-600 hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/30 gap-2">
-                                    <Link href="/courses">
-                                        {completedCourses === 0 ? "Begin Your Journey" : "Continue Evolution"}
-                                        <ChevronRight className="h-5 w-5" />
-                                    </Link>
-                                </Button>
+                                <div className="flex flex-col sm:flex-row gap-4">
+                                    <Button asChild size="lg" className="w-full sm:w-auto h-14 rounded-2xl px-8 font-black bg-blue-600 hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/30 gap-2">
+                                        <Link href="/courses">
+                                            {completedCourses === 0 ? "Begin Your Journey" : "Continue Evolution"}
+                                            <ChevronRight className="h-5 w-5" />
+                                        </Link>
+                                    </Button>
+
+                                    {progressPct === 100 ? (
+                                        <Button asChild size="lg" className="w-full sm:w-auto h-14 rounded-2xl px-8 font-black bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 transition-all shadow-lg shadow-emerald-600/30 gap-2">
+                                            <Link href="/exams">
+                                                <GraduationCap className="h-5 w-5" />
+                                                Take Final Exam
+                                            </Link>
+                                        </Button>
+                                    ) : (
+                                        <Button disabled size="lg" className="w-full sm:w-auto h-14 rounded-2xl px-8 font-black bg-white/5 border border-white/10 text-slate-500 opacity-50 cursor-not-allowed gap-2">
+                                            <GraduationCap className="h-5 w-5" />
+                                            Exam Locked
+                                        </Button>
+                                    )}
+                                </div>
                             </CardContent>
                         </Card>
 
