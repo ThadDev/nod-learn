@@ -13,7 +13,7 @@ export default async function AdminUsersPage() {
     const session = await auth()
 
     if (!session || session.user.role !== "ADMIN") {
-        redirect("/")
+        redirect("/admin/signin")
     }
 
     const users = await AdminService.getAllUsers()

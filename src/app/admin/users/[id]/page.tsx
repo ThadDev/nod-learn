@@ -25,7 +25,7 @@ export default async function UserDetailPage(props: { params: Promise<{ id: stri
     const session = await auth()
 
     if (!session || session.user.role !== "ADMIN") {
-        redirect("/")
+        redirect("/admin/signin")
     }
 
     const user = await AdminService.getUserById(id)
