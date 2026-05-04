@@ -15,7 +15,7 @@ import { LogoutButton } from "@/components/layout/LogoutButton"
 export default async function AdminDashboard() {
 
     const session = await auth()
-    if (!session?.user || session.user.role !== "ADMIN") redirect("/dashboard")
+    if (!session?.user || session.user.role !== "ADMIN") redirect("/admin/signin")
 
     const [metrics, recentUsers, posts] = await Promise.all([
         AdminService.getPlatformMetrics(),

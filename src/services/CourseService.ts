@@ -55,8 +55,6 @@ export class CourseService {
         const [courses, userProgress, userAttempts, userCertificates] = await Promise.all([
             prisma.course.findMany({
                 orderBy: { order: "asc" },
-                // @ts-ignore - Prisma types are out of sync but schema is correct
-                include: { exam: true }
             }),
             prisma.courseProgress.findMany({
                 where: { userId },
@@ -73,7 +71,11 @@ export class CourseService {
             userProgress.filter((p: any) => p.completed).map((p: any) => p.courseId)
         )
 
-        return courses.map((course: any, index: number) => {
+        // Exam is global (not per-course) — check if the user has any passing attempt
+        const hasPassed = userAttempts.some((a: any) => a.passed)
+        const attemptCount = userAttempts.length
+
+        return courses.map((course: any) => {
             // Module 1 (order 1) is always unlocked
             const isFirst = course.order === 1
 
@@ -87,21 +89,15 @@ export class CourseService {
             }
 
             const progress = userProgress.find((p: any) => p.courseId === course.id)
-            // @ts-ignore
-            const exam = course.exam
             const certificate = userCertificates.find((c: any) => c.courseId === course.id)
-            const attempts = userAttempts.filter((a: any) => a.examId === exam?.id)
-            const hasPassed = attempts.some((a: any) => a.passed)
 
             return {
                 ...course,
                 isUnlocked,
                 isCompleted: progress?.completed ?? false,
-                hasExam: !!exam,
-                examId: exam?.id,
                 hasPassedExam: hasPassed,
                 certificateId: certificate?.id,
-                attemptCount: attempts.length
+                attemptCount,
             }
         })
     }
