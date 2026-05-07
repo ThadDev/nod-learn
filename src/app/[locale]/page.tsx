@@ -27,7 +27,7 @@ const stagger = {
 }
 
 export default function LocaleHomePage() {
-  const { t, locale } = useTranslation()
+  const { t, locale, baseLocale } = useTranslation()
 
   const whyCards = [
     { key: "markets", icon: TrendingUp },
@@ -100,7 +100,7 @@ export default function LocaleHomePage() {
               variant="outline"
               className="border-white/20 text-white hover:bg-white/10 rounded-full"
             >
-              <Link href={`/${locale}/course`}>
+              <Link href={`/${baseLocale}/course`}>
                 {t("landing.cta.startCourse")} <ChevronRight size={16} className="ml-1" />
               </Link>
             </Button>
@@ -283,7 +283,7 @@ export default function LocaleHomePage() {
                 asChild size="lg"
                 className="bg-blue-600 hover:bg-blue-500 font-bold px-8 rounded-full shadow-xl shadow-blue-600/30 hover:scale-105 transition-all"
               >
-                <Link href={`/${locale}/course`}>
+                <Link href={`/${baseLocale}/course`}>
                   {t("landing.cta.startCourse")}
                   <ChevronRight className="ml-2" size={18} />
                 </Link>

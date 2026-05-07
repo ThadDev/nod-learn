@@ -8,6 +8,7 @@ import { getServerLocale } from "@/i18n/server";
 import { STATIC_LOCALE_LABELS } from "@/i18n";
 
 import Script from "next/script";
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 
 const inter = Inter({ subsets: ["latin", "latin-ext"] });
 
@@ -68,6 +69,7 @@ export default async function RootLayout({
             <ConditionalLayout>
               {children}
             </ConditionalLayout>
+            <LanguageSwitcher variant="floating" />
           </I18nProviderWrapper>
         </NextAuthProvider>
       </body>

@@ -12,7 +12,7 @@ import { getLocalizedField } from "@/i18n/utils"
 import { SAMPLE_COURSES } from "@/lib/i18n-data"
 
 export default function LocaleLessonPage() {
-  const { t, locale } = useTranslation()
+  const { t, locale, baseLocale } = useTranslation()
   const params = useParams()
   const lessonId = params?.id as string ?? ""
   const [showQuiz, setShowQuiz] = useState(false)
@@ -41,7 +41,7 @@ export default function LocaleLessonPage() {
       <div className="text-center">
         <AlertCircle size={48} className="text-slate-400 mx-auto mb-4" />
         <p className="text-slate-400">Lesson not found</p>
-        <Link href={`/${locale}/courses`}>
+        <Link href={`/${baseLocale}/courses`}>
           <Button className="mt-4">{t("lesson.backToCourse")}</Button>
         </Link>
       </div>
@@ -62,7 +62,7 @@ export default function LocaleLessonPage() {
       <div className="container mx-auto px-6 py-12 max-w-4xl">
 
         {/* Back */}
-        <Link href={`/${locale}/course/${courseSlug}`} className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-8 text-sm">
+        <Link href={`/${baseLocale}/course/${courseSlug}`} className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-8 text-sm">
           <ChevronLeft size={16} /> {t("lesson.backToCourse")}
         </Link>
 
@@ -193,7 +193,7 @@ export default function LocaleLessonPage() {
                       {t("quiz.tryAgain")}
                     </Button>
                     <Button className="bg-blue-600 hover:bg-blue-500 rounded-full" asChild>
-                      <Link href={`/${locale}/courses`}>{t("quiz.nextLesson")} <ChevronRight size={14} className="ml-1" /></Link>
+                      <Link href={`/${baseLocale}/courses`}>{t("quiz.nextLesson")} <ChevronRight size={14} className="ml-1" /></Link>
                     </Button>
                   </div>
                 </CardContent>

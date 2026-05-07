@@ -16,9 +16,9 @@ interface Course {
     isCompleted: boolean;
 }
 
-export default async function CoursesPage() {
+export default async function CoursesPage({ params: { locale } }: { params: { locale: string } }) {
     const session = await auth()
-    if (!session?.user) redirect("/signin?callbackUrl=/courses")
+    if (!session?.user) redirect(`/${locale}/signin?callbackUrl=/${locale}/courses`)
 
     const courses: Course[] = await CourseService.getCoursesWithUserProgress(session.user.id)
 
@@ -55,7 +55,7 @@ export default async function CoursesPage() {
                         
                         <div className="pt-4 flex justify-center">
                             {courses.every(c => c.isCompleted) ? (
-                                <Link href="/exams">
+                                <Link href={`/${locale}/exams`}>
                                     <Button size="lg" className="h-16 px-12 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-xl shadow-[0_0_50px_-10px_rgba(59,130,246,0.5)] transition-all hover:scale-105">
                                         Start Certification Exam
                                     </Button>

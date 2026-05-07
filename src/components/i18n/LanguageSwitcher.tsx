@@ -19,7 +19,7 @@ import {
 } from "@/i18n"
 
 interface LanguageSwitcherProps {
-  variant?: "dropdown" | "pills"
+  variant?: "dropdown" | "pills" | "floating"
   className?: string
 }
 
@@ -140,46 +140,61 @@ export function LanguageSwitcher({
     )
   }
 
+  const isFloating = variant === "floating"
+
   return (
-    <div className={`relative ${className}`} ref={ref}>
+    <div className={`${isFloating ? "fixed bottom-4 left-4 z-[999] md:hidden" : "relative"} ${className}`} ref={ref}>
       <button
-        id="language-switcher-btn"
+        id={isFloating ? "language-switcher-floating-btn" : "language-switcher-btn"}
         onClick={() => setOpen(!open)}
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={t("common.selectLanguage")}
-        className="
-          flex items-center gap-1.5 px-3 py-2 rounded-lg
-          text-sm font-medium text-slate-300
-          hover:bg-white/10 hover:text-white
-          transition-all duration-200
-          border border-transparent hover:border-white/10
-        "
+        className={isFloating 
+          ? `
+            flex items-center justify-center w-12 h-12 rounded-full
+            bg-slate-900 border border-white/20 shadow-2xl shadow-black/50
+            text-white hover:bg-slate-800 transition-all duration-200
+          `
+          : `
+            flex items-center gap-1.5 px-3 py-2 rounded-lg
+            text-sm font-medium text-slate-300
+            hover:bg-white/10 hover:text-white
+            transition-all duration-200
+            border border-transparent hover:border-white/10
+          `
+        }
       >
-        <Globe size={15} className="text-blue-400 shrink-0" />
-        <span className="hidden sm:inline">{currentFlag}</span>
-        <span className="hidden sm:inline">{currentLabel} {!currentLangObj?.isStatic && currentLangObj ? "(Auto)" : ""}</span>
-        <span className="sm:hidden">{currentFlag}</span>
-        <ChevronDown
-          size={14}
-          className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-        />
+        {isFloating ? (
+          <span className="text-xl">{currentFlag}</span>
+        ) : (
+          <>
+            <Globe size={15} className="text-blue-400 shrink-0" />
+            <span className="hidden sm:inline">{currentFlag}</span>
+            <span className="hidden sm:inline">{currentLabel} {!currentLangObj?.isStatic && currentLangObj ? "(Auto)" : ""}</span>
+            <span className="sm:hidden">{currentFlag}</span>
+            <ChevronDown
+              size={14}
+              className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+            />
+          </>
+        )}
       </button>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -8, scale: 0.95 }}
+            initial={{ opacity: 0, y: isFloating ? 8 : -8, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -8, scale: 0.95 }}
+            exit={{ opacity: 0, y: isFloating ? 8 : -8, scale: 0.95 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="
-              absolute right-0 top-full mt-2 z-[200]
+            className={`
+              absolute ${isFloating ? "bottom-full mb-3 left-0" : "right-0 top-full mt-2"} z-[200]
               w-56 overflow-hidden flex flex-col
               rounded-xl border border-white/10
               bg-slate-900/95 backdrop-blur-xl
               shadow-2xl shadow-black/40
-            "
+            `}
           >
             <div className="p-2 border-b border-white/10 relative">
                <Search size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
