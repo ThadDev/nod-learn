@@ -41,9 +41,9 @@ type DotKeys<T, Prefix extends string = ""> = {
 /** Union of every valid dot-notation translation key */
 export type TranslationKey = DotKeys<Translations>
 
-/** Context value shape exposed by the i18n provider */
 export interface I18nContextValue {
   locale: string
+  baseLocale: string
   setLocale: (locale: string, persist?: boolean) => Promise<void>
   t: (key: string, params?: Record<string, string | number>) => string
   isRTL: boolean

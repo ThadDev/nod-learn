@@ -60,23 +60,49 @@ export function LanguageSwitcher({
   async function handleSelect(next: string) {
     if (next === locale) { setOpen(false); return }
 
-    // 1. Persist
-    persistLocale(next)
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
 
-    // 2. Update context + trigger API sync
-    await setLocale(next, true)
+    if (!isStaticLocale(next)) {
+      // Set googtrans cookie for the widget
+      const cookieStr = `googtrans=/en/${next}; path=/;`
+      document.cookie = isLocalhost ? cookieStr : `${cookieStr} domain=${window.location.hostname}`
+      
+      if (!isLocalhost) {
+        const parts = window.location.hostname.split('.')
+        if (parts.length > 2) {
+          const domain = parts.slice(-2).join('.')
+          document.cookie = `${cookieStr} domain=.${domain}`
+        }
+      }
+      
+      // We don't push a new Next.js route, we stay on the current static URL.
+      // E.g., if on /en/dashboard, stay there, let the widget translate it.
+      persistLocale(next)
+      await setLocale(next, true)
+      
+      window.location.reload()
+      return
+    } else {
+      // Clear the cookie when switching back to a static/supported locale
+      const clearCookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+      document.cookie = isLocalhost ? clearCookie : `${clearCookie} domain=${window.location.hostname}`
+      
+      // 1. Persist
+      persistLocale(next)
 
-    // 3. Navigate to equivalent path
-    // The middleware currently handles 2-letter codes. 
-    // We strip the existing 2-letter code if it exists.
-    const pathParts = pathname.split('/')
-    if (pathParts.length > 1 && pathParts[1].length === 2) {
-      pathParts.splice(1, 1) // remove existing locale
+      // 2. Update context
+      await setLocale(next, true)
+
+      // 3. Navigate to equivalent path
+      const pathParts = pathname.split('/')
+      if (pathParts.length > 1 && pathParts[1].length === 2) {
+        pathParts.splice(1, 1) // remove existing locale
+      }
+      const stripped = pathParts.join('/') || '/'
+      
+      router.push(`/${next}${stripped}`)
+      router.refresh()
     }
-    const stripped = pathParts.join('/') || '/'
-    
-    router.push(`/${next}${stripped}`)
-    router.refresh()
 
     setOpen(false)
     setSearchQuery("")

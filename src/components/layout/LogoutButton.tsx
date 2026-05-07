@@ -22,7 +22,7 @@ export function LogoutButton({
             variant={variant}
             size="sm"
             className={`${fullWidth ? "w-full justify-start" : ""} ${className}`}
-            onClick={() => signOut({ callbackUrl: "/" })}
+            onClick={() => signOut({ callbackUrl: "/signin" })}
         >
             {showIcon && <LogOut className="mr-2 h-4 w-4" />}
             Logout

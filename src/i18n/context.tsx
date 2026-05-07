@@ -41,13 +41,9 @@ export function I18nProvider({ children, initialLocale }: I18nProviderProps) {
   const [fallback, setFallback] = useState<Translations | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   
-  // Client-side cache for dynamically translated strings: Map<key_with_params, translated_string>
-  const [dynamicCache, setDynamicCache] = useState<Record<string, string>>({})
-
   // Keep refs
   const localeRef = useRef(locale)
   localeRef.current = locale
-  const inFlightTranslations = useRef<Set<string>>(new Set())
 
   // Load translations whenever locale changes
   useEffect(() => {
@@ -67,10 +63,6 @@ export function I18nProvider({ children, initialLocale }: I18nProviderProps) {
         setTranslations(primary)
         setFallback(fb)
         setIsLoading(false)
-
-        // Clear dynamic cache when switching locales
-        setDynamicCache({})
-        inFlightTranslations.current.clear()
 
         // Sync <html lang="...">
         document.documentElement.lang = locale
@@ -93,7 +85,6 @@ export function I18nProvider({ children, initialLocale }: I18nProviderProps) {
         setLocaleState(detected)
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   /**
@@ -114,54 +105,24 @@ export function I18nProvider({ children, initialLocale }: I18nProviderProps) {
 
   /**
    * Translate a dot-notation key.
-   * If the current locale is dynamic, it returns the English base immediately,
-   * but triggers a background API call to translate it, updating the cache when done.
    */
   const t = useCallback(
     (key: string, params?: Record<string, string | number>): string => {
       if (!translations) return key
-
-      // Get the base English/German string
-      const baseString = translate(key, translations, fallback, params)
-
-      // 1. If it's a static locale, just return the base string
-      if (isStaticLocale(locale)) {
-        return baseString
-      }
-
-      // 2. We are in a dynamic locale (e.g. "fr", "it", "zh"). 
-      // Use the resolved baseString + target locale as the cache key.
-      const cacheKey = `${key}::${JSON.stringify(params || {})}`
-
-      if (dynamicCache[cacheKey]) {
-        return dynamicCache[cacheKey]
-      }
-
-      // 3. Trigger translation if not already in flight
-      if (!inFlightTranslations.current.has(cacheKey) && baseString !== key) {
-        inFlightTranslations.current.add(cacheKey)
-        
-        translateDynamically(baseString, locale).then((translatedText) => {
-          setDynamicCache((prev) => ({
-            ...prev,
-            [cacheKey]: translatedText
-          }))
-        }).catch((err) => {
-          console.error("Dynamic translation failed for", key, err)
-          inFlightTranslations.current.delete(cacheKey)
-        })
-      }
-
-      // 4. Return base string temporarily while loading
-      return baseString
+      return translate(key, translations, fallback, params)
     },
-    [translations, fallback, locale, dynamicCache]
+    [translations, fallback]
   )
 
   const isRTL = isStaticLocale(locale) ? STATIC_LOCALE_LABELS[locale as StaticLocale].dir === "rtl" : false
 
+  // Determine the URL base locale (must be a static locale). 
+  // If the active locale is dynamic (e.g., 'fr'), the URL stays on 'en'.
+  const baseLocale = isStaticLocale(locale) ? locale : "en"
+
   const value: I18nContextValue = {
     locale,
+    baseLocale, // We need to add this to the type
     setLocale,
     t,
     isRTL,
