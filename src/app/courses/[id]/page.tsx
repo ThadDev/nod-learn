@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { ChevronLeft, CheckCircle2, FileText, AlertCircle, Sparkles } from "lucide-react"
 import Link from "next/link"
 import { CompletionButton } from "@/components/courses/CompletionButton"
+import { StudyHubViewer } from "@/components/courses/StudyHubViewer"
 
 export const dynamic = "force-dynamic"
 
@@ -71,7 +72,7 @@ export default async function CourseDetailPage(props: { params: Promise<{ id: st
             <main className="flex-1 container mx-auto px-6 py-12 max-w-6xl relative z-10">
                 <div className="grid gap-10">
                     {/* PDF Viewer */}
-                    <Card className="group relative border border-white/10 shadow-2xl bg-slate-900/40 backdrop-blur-sm h-[80vh] min-h-[600px] overflow-hidden flex flex-col rounded-3xl transition-all hover:border-blue-500/30">
+                    <Card className="group relative border border-white/10 shadow-2xl bg-slate-900/40 backdrop-blur-sm min-h-[600px] overflow-hidden flex flex-col rounded-3xl transition-all hover:border-blue-500/30">
                         <div className="bg-white/5 px-6 py-3 border-b border-white/5 flex items-center justify-between">
                             <div className="flex items-center gap-2">
                                 <div className="h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
@@ -81,11 +82,7 @@ export default async function CourseDetailPage(props: { params: Promise<{ id: st
                         </div>
                         <div className="flex-1 bg-slate-950/30 relative">
                             {course.fileUrl ? (
-                                <iframe
-                                    src={`${course.fileUrl}#toolbar=0`}
-                                    className="w-full h-full border-none invert-[0.05] grayscale-[0.1]"
-                                    title={course.title}
-                                />
+                                <StudyHubViewer fileUrl={course.fileUrl} title={course.title} />
                             ) : (
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center">
                                     <div className="p-6 bg-white/5 rounded-3xl border border-white/10 mb-6">
@@ -137,3 +134,4 @@ function Card({ children, className }: any) {
         </div>
     )
 }
+

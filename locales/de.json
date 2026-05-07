@@ -1,0 +1,329 @@
+{
+  "common": {
+    "loading": "Wird geladen...",
+    "error": "Ein Fehler ist aufgetreten",
+    "retry": "Erneut versuchen",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "submit": "Einreichen",
+    "confirm": "Bestätigen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "view": "Ansehen",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "sort": "Sortieren",
+    "share": "Teilen",
+    "copy": "Kopieren",
+    "copied": "Kopiert!",
+    "or": "oder",
+    "and": "und",
+    "yes": "Ja",
+    "no": "Nein",
+    "required": "Erforderlich",
+    "optional": "Optional",
+    "free": "Kostenlos",
+    "new": "Neu",
+    "updated": "Aktualisiert",
+    "language": "Sprache",
+    "selectLanguage": "Sprache auswählen",
+    "languageSaved": "Spracheinstellung gespeichert"
+  },
+  "nav": {
+    "curriculum": "Lehrplan",
+    "blog": "Blog",
+    "about": "Über uns",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "dashboard": "Dashboard",
+    "login": "Anmelden",
+    "getStarted": "Loslegen",
+    "logout": "Abmelden",
+    "joinCommunity": "Community beitreten"
+  },
+  "landing": {
+    "hero": {
+      "badge": "Finanz-Community",
+      "title": "Treten Sie einer Community bei",
+      "titleHighlight": "Lernen Sie zu investieren",
+      "subtitle": "Vernetzen Sie sich mit Tausenden von Anfängern, die lernen, wie Aktien, Krypto und Immobilien tatsächlich funktionieren. Erhalten Sie Einblicke, stellen Sie Fragen und lernen Sie gemeinsam mit anderen in der Nodlearn WhatsApp-Community.",
+      "cta": "WhatsApp-Community beitreten",
+      "stats": {
+        "members": "12.000+ Mitglieder",
+        "trusted": "Von Anfängern vertraut",
+        "learn": "Gemeinsam lernen"
+      }
+    },
+    "why": {
+      "title": "Warum Finanzielle Bildung Wichtig Ist",
+      "subtitle": "Viele Menschen beginnen zu investieren, nachdem sie online einen Hype gehört haben. Das Verständnis der Grundlagen hilft Ihnen, klügere Entscheidungen zu treffen und kostspielige Fehler zu vermeiden.",
+      "cards": {
+        "markets": {
+          "title": "Verstehen Sie, wie Märkte funktionieren",
+          "desc": "Lernen Sie die Mechanismen hinter Aktien-, Krypto- und Immobilienmärkten."
+        },
+        "mistakes": {
+          "title": "Vermeiden Sie Anfängerfehler",
+          "desc": "Die meisten Anleger verlieren Geld, weil sie ohne Wissen beginnen."
+        },
+        "skills": {
+          "title": "Bauen Sie langfristige finanzielle Fähigkeiten auf",
+          "desc": "Wissen vermehrt sich genau wie Investitionen."
+        }
+      }
+    },
+    "curriculum": {
+      "title": "Was Sie lernen werden",
+      "subtitle": "Drei Säulen des modernen Investierens.",
+      "courses": {
+        "stocks": {
+          "title": "Aktienmarkt",
+          "items": ["Wie Aktien funktionieren", "Risiko & Diversifikation", "Langfristiges Investieren"]
+        },
+        "scams": {
+          "title": "Online-Betrug erkennen",
+          "items": ["Wie man Betrug erkennt", "Häufige Betrugstaktiken", "Sich selbst schützen"]
+        },
+        "crypto": {
+          "title": "Krypto & Blockchain",
+          "items": ["Blockchain erklärt", "Krypto-Grundlagen", "Wallet-Sicherheit"]
+        },
+        "risk": {
+          "title": "Risikomanagement",
+          "items": ["Finanzielle Risiken verstehen", "Diversifikationsstrategien", "Investitionen schützen"]
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Was Schüler sagen",
+      "reviews": [
+        { "name": "Sarah K.", "text": "Klare Erklärungen und praktische Lektionen. Perfekt für Anfänger." },
+        { "name": "James M.", "text": "Endlich verstehe ich Krypto ohne den ganzen Hype." },
+        { "name": "Amara T.", "text": "Großartige Grundlage, bevor man mit dem Investieren beginnt." }
+      ]
+    },
+    "cta": {
+      "title": "Beginnen Sie noch heute zu lernen",
+      "subtitle": "Schließen Sie sich Tausenden von Schülern an, die echtes Finanzwissen aufbauen.",
+      "startCourse": "Kostenlosen Kurs starten",
+      "joinWhatsapp": "WhatsApp-Community beitreten"
+    }
+  },
+  "dashboard": {
+    "welcome": "Willkommen zurück, {{name}}",
+    "welcomeGuest": "Willkommen bei NodLearn",
+    "overview": "Überblick",
+    "progress": "Ihr Fortschritt",
+    "continueLearning": "Weiterlernen",
+    "completedCourses": "Abgeschlossene Kurse",
+    "inProgress": "In Bearbeitung",
+    "certificates": "Zertifikate",
+    "recentActivity": "Letzte Aktivität",
+    "noActivity": "Noch keine letzte Aktivität.",
+    "startCourse": "Einen Kurs starten",
+    "viewAll": "Alle ansehen",
+    "stats": {
+      "coursesEnrolled": "Eingeschriebene Kurse",
+      "lessonsCompleted": "Abgeschlossene Lektionen",
+      "certificatesEarned": "Verdiente Zertifikate",
+      "streakDays": "Tage in Folge"
+    }
+  },
+  "courses": {
+    "title": "Alle Kurse",
+    "subtitle": "Beginnen Sie Ihre finanzielle Bildungsreise",
+    "enroll": "Jetzt einschreiben",
+    "enrolled": "Eingeschrieben",
+    "continue": "Weiter",
+    "startLesson": "Lektion starten",
+    "viewCourse": "Kurs ansehen",
+    "lessons": "Lektionen",
+    "modules": "Module",
+    "duration": "Dauer",
+    "level": "Niveau",
+    "beginner": "Anfänger",
+    "intermediate": "Mittelstufe",
+    "advanced": "Fortgeschritten",
+    "free": "Kostenlos",
+    "progress": "{{percent}}% abgeschlossen",
+    "noCoursesFound": "Keine Kurse gefunden",
+    "filterAll": "Alle",
+    "searchPlaceholder": "Kurse suchen..."
+  },
+  "lesson": {
+    "title": "Lektion",
+    "markComplete": "Als abgeschlossen markieren",
+    "completed": "Abgeschlossen",
+    "nextLesson": "Nächste Lektion",
+    "prevLesson": "Vorherige Lektion",
+    "backToCourse": "Zurück zum Kurs",
+    "studyHub": "Lernzentrum",
+    "takeQuiz": "Quiz machen",
+    "resources": "Ressourcen",
+    "notes": "Meine Notizen",
+    "videoUnavailable": "Video nicht verfügbar"
+  },
+  "quiz": {
+    "title": "Quiz",
+    "question": "Frage {{current}} von {{total}}",
+    "submit": "Antworten einreichen",
+    "results": "Quiz-Ergebnisse",
+    "score": "Ihre Punktzahl",
+    "passed": "Herzlichen Glückwunsch! Sie haben bestanden.",
+    "failed": "Üben Sie weiter. Versuchen Sie es noch einmal!",
+    "correctAnswers": "Richtige Antworten",
+    "tryAgain": "Erneut versuchen",
+    "nextLesson": "Weiter zur nächsten Lektion",
+    "explanation": "Erklärung",
+    "timeRemaining": "Verbleibende Zeit",
+    "noQuiz": "Kein Quiz für diese Lektion verfügbar"
+  },
+  "exam": {
+    "title": "Zertifizierungsprüfung",
+    "subtitle": "Testen Sie Ihr Wissen und verdienen Sie Ihr Zertifikat",
+    "startExam": "Prüfung starten",
+    "duration": "{{minutes}} Minuten",
+    "questions": "{{count}} Fragen",
+    "passScore": "Bestehensgrenze: {{score}}%",
+    "inProgress": "Prüfung im Gange",
+    "submit": "Prüfung einreichen",
+    "results": "Prüfungsergebnisse",
+    "passed": "Sie haben bestanden!",
+    "failed": "Noch nicht ganz",
+    "score": "Ihre Punktzahl: {{score}}%",
+    "certificate": "Zertifikat ansehen",
+    "retake": "Prüfung wiederholen",
+    "timeUp": "Die Zeit ist um!",
+    "confirmSubmit": "Sind Sie sicher, dass Sie einreichen möchten?",
+    "answeredAll": "Bitte beantworten Sie alle Fragen, bevor Sie einreichen"
+  },
+  "auth": {
+    "signIn": {
+      "title": "Willkommen zurück",
+      "subtitle": "Melden Sie sich an, um Ihre Lernreise fortzusetzen",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "forgotPassword": "Passwort vergessen?",
+      "submit": "Anmelden",
+      "noAccount": "Sie haben noch kein Konto?",
+      "register": "Erstellen Sie eines"
+    },
+    "register": {
+      "title": "Erstellen Sie Ihr Konto",
+      "subtitle": "Schließen Sie sich Tausenden von Lernenden auf NodLearn an",
+      "name": "Vollständiger Name",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "confirmPassword": "Passwort bestätigen",
+      "submit": "Konto erstellen",
+      "hasAccount": "Haben Sie bereits ein Konto?",
+      "signIn": "Anmelden",
+      "terms": "Durch die Erstellung eines Kontos stimmen Sie unseren Nutzungsbedingungen und Datenschutzrichtlinien zu."
+    },
+    "errors": {
+      "invalidCredentials": "E-Mail oder Passwort ungültig",
+      "emailInUse": "E-Mail wird bereits verwendet",
+      "passwordMismatch": "Die Passwörter stimmen nicht überein",
+      "weakPassword": "Das Passwort muss mindestens 8 Zeichen lang sein",
+      "requiredField": "Dieses Feld ist erforderlich"
+    }
+  },
+  "profile": {
+    "title": "Mein Profil",
+    "editProfile": "Profil bearbeiten",
+    "name": "Vollständiger Name",
+    "email": "E-Mail",
+    "country": "Land",
+    "language": "Bevorzugte Sprache",
+    "saveChanges": "Änderungen speichern",
+    "changePassword": "Passwort ändern",
+    "dangerZone": "Gefahrenzone",
+    "deleteAccount": "Konto löschen",
+    "memberSince": "Mitglied seit {{date}}"
+  },
+  "admin": {
+    "title": "Admin-Panel",
+    "dashboard": "Admin-Dashboard",
+    "users": "Benutzer",
+    "courses": "Kurse",
+    "translations": "Übersetzungen",
+    "blog": "Blog",
+    "exams": "Prüfungen",
+    "analytics": "Analytik",
+    "settings": "Einstellungen",
+    "translationManager": {
+      "title": "Übersetzungsmanager",
+      "subtitle": "Verwalten Sie mehrsprachige Inhalte auf der gesamten Plattform",
+      "addTranslation": "Übersetzung hinzufügen",
+      "editTranslation": "Übersetzung bearbeiten",
+      "key": "Übersetzungsschlüssel",
+      "languages": "Sprachen",
+      "actions": "Aktionen",
+      "missingTranslations": "Fehlende Übersetzungen",
+      "exportAll": "Alle exportieren",
+      "importFile": "Datei importieren"
+    }
+  },
+  "errors": {
+    "404": {
+      "title": "Seite nicht gefunden",
+      "subtitle": "Die von Ihnen gesuchte Seite existiert nicht.",
+      "backHome": "Zurück zur Startseite"
+    },
+    "500": {
+      "title": "Serverfehler",
+      "subtitle": "Etwas ist auf unserer Seite schiefgelaufen.",
+      "retry": "Erneut versuchen"
+    },
+    "unauthorized": {
+      "title": "Zugriff verweigert",
+      "subtitle": "Sie haben keine Berechtigung, diese Seite anzuzeigen.",
+      "signIn": "Melden Sie sich an, um fortzufahren"
+    }
+  },
+  "footer": {
+    "tagline": "Stärkung der finanziellen Bildung weltweit.",
+    "links": {
+      "title": "Schnellzugriff",
+      "home": "Startseite",
+      "courses": "Kurse",
+      "blog": "Blog",
+      "about": "Über uns",
+      "contact": "Kontakt"
+    },
+    "legal": {
+      "title": "Rechtliches",
+      "privacy": "Datenschutzrichtlinie",
+      "terms": "Nutzungsbedingungen",
+      "disclaimer": "Haftungsausschluss"
+    },
+    "social": {
+      "title": "Community",
+      "whatsapp": "WhatsApp-Gruppe",
+      "twitter": "Twitter",
+      "instagram": "Instagram"
+    },
+    "copyright": "© {{year}} NodLearn. Alle Rechte vorbehalten."
+  },
+  "seo": {
+    "home": {
+      "title": "NodLearn | Premium Finanzielle Bildung",
+      "description": "Lernen Sie, wie moderne Investitionen funktionieren, mit unserer kostenlosen finanziellen Bildung, die Aktien, Blockchain und Immobilien abdeckt."
+    },
+    "dashboard": {
+      "title": "Dashboard | NodLearn",
+      "description": "Verfolgen Sie Ihren Lernfortschritt und setzen Sie Ihre finanzielle Bildungsreise fort."
+    },
+    "courses": {
+      "title": "Kurse | NodLearn",
+      "description": "Erkunden Sie unsere umfassenden finanziellen Bildungskurse für Anfänger."
+    },
+    "about": {
+      "title": "Über NodLearn",
+      "description": "Erfahren Sie mehr über unsere Mission, finanzielle Bildung für alle zugänglich zu machen."
+    }
+  }
+}

@@ -3,26 +3,48 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ConditionalLayout } from "@/components/layout/ConditionalLayout";
 import { NextAuthProvider } from "@/components/providers/NextAuthProvider";
+import { I18nProviderWrapper } from "@/components/providers/I18nProviderWrapper";
+import { getServerLocale } from "@/i18n/server";
+import { STATIC_LOCALE_LABELS } from "@/i18n";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin", "latin-ext"] });
 
 export const metadata: Metadata = {
-  title: "Nodlearn | Premium Financial Education",
-  description: "Learn how modern investments work with our free financial education covering stocks, blockchain, and real estate.",
+  title: {
+    default: "NodLearn | Premium Financial Education",
+    template: "%s | NodLearn",
+  },
+  description:
+    "Learn how modern investments work with our free financial education covering stocks, blockchain, and real estate.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "https://nodlearn.com"),
+  alternates: {
+    languages: Object.fromEntries(
+      Object.keys(STATIC_LOCALE_LABELS).map((l) => [l, `/${l}`])
+    ),
+  },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getServerLocale();
+  // For static locales use the predefined dir; unknown dynamic locales default to ltr
+  const dir = (STATIC_LOCALE_LABELS as Record<string, { dir: string }>)[locale]?.dir ?? "ltr";
+
   return (
-    <html lang="en">
+    <html lang={locale} dir={dir} suppressHydrationWarning>
+      <head>
+        {/* Hreflang tags are added per-page via generateMetadata() */}
+      </head>
       <body className={`${inter.className} min-h-screen flex flex-col antialiased`}>
         <NextAuthProvider>
-          <ConditionalLayout>
-            {children}
-          </ConditionalLayout>
+          <I18nProviderWrapper initialLocale={locale}>
+            <ConditionalLayout>
+              {children}
+            </ConditionalLayout>
+          </I18nProviderWrapper>
         </NextAuthProvider>
       </body>
     </html>

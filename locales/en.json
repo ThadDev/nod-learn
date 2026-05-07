@@ -1,0 +1,329 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Try again",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "share": "Share",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "or": "or",
+    "and": "and",
+    "yes": "Yes",
+    "no": "No",
+    "required": "Required",
+    "optional": "Optional",
+    "free": "Free",
+    "new": "New",
+    "updated": "Updated",
+    "language": "Language",
+    "selectLanguage": "Select language",
+    "languageSaved": "Language preference saved"
+  },
+  "nav": {
+    "curriculum": "Curriculum",
+    "blog": "Blog",
+    "about": "About",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "dashboard": "Dashboard",
+    "login": "Log in",
+    "getStarted": "Get Started",
+    "logout": "Sign out",
+    "joinCommunity": "Join Community"
+  },
+  "landing": {
+    "hero": {
+      "badge": "Financial Community",
+      "title": "Join a Community",
+      "titleHighlight": "Learning How to Invest",
+      "subtitle": "Connect with thousands of beginners learning how stocks, crypto and real estate actually work. Get insights, ask questions, and learn alongside others inside the Nodlearn WhatsApp community.",
+      "cta": "Join WhatsApp Community",
+      "stats": {
+        "members": "12,000+ members",
+        "trusted": "Trusted by beginners",
+        "learn": "Learn together"
+      }
+    },
+    "why": {
+      "title": "Why Financial Education Matters",
+      "subtitle": "Many people start investing after hearing hype online. Understanding the fundamentals helps you make smarter decisions and avoid costly mistakes.",
+      "cards": {
+        "markets": {
+          "title": "Understand how markets work",
+          "desc": "Learn the mechanics behind stocks, crypto and property markets."
+        },
+        "mistakes": {
+          "title": "Avoid beginner mistakes",
+          "desc": "Most investors lose money because they start without knowledge."
+        },
+        "skills": {
+          "title": "Build long-term financial skills",
+          "desc": "Knowledge compounds just like investments."
+        }
+      }
+    },
+    "curriculum": {
+      "title": "What You'll Learn",
+      "subtitle": "Three pillars of modern investing.",
+      "courses": {
+        "stocks": {
+          "title": "Stock Market",
+          "items": ["How stocks work", "Risk & diversification", "Long-term investing"]
+        },
+        "scams": {
+          "title": "Identifying Online Scams",
+          "items": ["How to spot scams", "Common scam tactics", "Protecting yourself"]
+        },
+        "crypto": {
+          "title": "Crypto & Blockchain",
+          "items": ["Blockchain explained", "Crypto fundamentals", "Wallet security"]
+        },
+        "risk": {
+          "title": "Risk Management",
+          "items": ["Understanding financial risks", "Diversification strategies", "Protecting investments"]
+        }
+      }
+    },
+    "testimonials": {
+      "title": "What Students Say",
+      "reviews": [
+        { "name": "Sarah K.", "text": "Clear explanations and practical lessons. Perfect for beginners." },
+        { "name": "James M.", "text": "Finally understand crypto without the hype." },
+        { "name": "Amara T.", "text": "Great foundation before starting investing." }
+      ]
+    },
+    "cta": {
+      "title": "Start Learning Today",
+      "subtitle": "Join thousands of students building real financial knowledge.",
+      "startCourse": "Start Free Course",
+      "joinWhatsapp": "Join WhatsApp Community"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome back, {{name}}",
+    "welcomeGuest": "Welcome to NodLearn",
+    "overview": "Overview",
+    "progress": "Your Progress",
+    "continueLearning": "Continue Learning",
+    "completedCourses": "Completed Courses",
+    "inProgress": "In Progress",
+    "certificates": "Certificates",
+    "recentActivity": "Recent Activity",
+    "noActivity": "No recent activity yet.",
+    "startCourse": "Start a Course",
+    "viewAll": "View all",
+    "stats": {
+      "coursesEnrolled": "Courses Enrolled",
+      "lessonsCompleted": "Lessons Completed",
+      "certificatesEarned": "Certificates Earned",
+      "streakDays": "Day Streak"
+    }
+  },
+  "courses": {
+    "title": "All Courses",
+    "subtitle": "Start your financial education journey",
+    "enroll": "Enroll Now",
+    "enrolled": "Enrolled",
+    "continue": "Continue",
+    "startLesson": "Start Lesson",
+    "viewCourse": "View Course",
+    "lessons": "Lessons",
+    "modules": "Modules",
+    "duration": "Duration",
+    "level": "Level",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "free": "Free",
+    "progress": "{{percent}}% complete",
+    "noCoursesFound": "No courses found",
+    "filterAll": "All",
+    "searchPlaceholder": "Search courses..."
+  },
+  "lesson": {
+    "title": "Lesson",
+    "markComplete": "Mark as Complete",
+    "completed": "Completed",
+    "nextLesson": "Next Lesson",
+    "prevLesson": "Previous Lesson",
+    "backToCourse": "Back to Course",
+    "studyHub": "Study Hub",
+    "takeQuiz": "Take Quiz",
+    "resources": "Resources",
+    "notes": "My Notes",
+    "videoUnavailable": "Video unavailable"
+  },
+  "quiz": {
+    "title": "Quiz",
+    "question": "Question {{current}} of {{total}}",
+    "submit": "Submit Answers",
+    "results": "Quiz Results",
+    "score": "Your Score",
+    "passed": "Congratulations! You passed.",
+    "failed": "Keep practicing. Try again!",
+    "correctAnswers": "Correct Answers",
+    "tryAgain": "Try Again",
+    "nextLesson": "Continue to Next Lesson",
+    "explanation": "Explanation",
+    "timeRemaining": "Time Remaining",
+    "noQuiz": "No quiz available for this lesson"
+  },
+  "exam": {
+    "title": "Certification Exam",
+    "subtitle": "Test your knowledge and earn your certificate",
+    "startExam": "Start Exam",
+    "duration": "{{minutes}} minutes",
+    "questions": "{{count}} Questions",
+    "passScore": "Pass Score: {{score}}%",
+    "inProgress": "Exam in Progress",
+    "submit": "Submit Exam",
+    "results": "Exam Results",
+    "passed": "You Passed!",
+    "failed": "Not Quite There Yet",
+    "score": "Your Score: {{score}}%",
+    "certificate": "View Certificate",
+    "retake": "Retake Exam",
+    "timeUp": "Time's Up!",
+    "confirmSubmit": "Are you sure you want to submit?",
+    "answeredAll": "Please answer all questions before submitting"
+  },
+  "auth": {
+    "signIn": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to continue your learning journey",
+      "email": "Email address",
+      "password": "Password",
+      "forgotPassword": "Forgot password?",
+      "submit": "Sign in",
+      "noAccount": "Don't have an account?",
+      "register": "Create one"
+    },
+    "register": {
+      "title": "Create your account",
+      "subtitle": "Join thousands of learners on NodLearn",
+      "name": "Full name",
+      "email": "Email address",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "submit": "Create account",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "terms": "By creating an account, you agree to our Terms of Service and Privacy Policy."
+    },
+    "errors": {
+      "invalidCredentials": "Invalid email or password",
+      "emailInUse": "Email already in use",
+      "passwordMismatch": "Passwords do not match",
+      "weakPassword": "Password must be at least 8 characters",
+      "requiredField": "This field is required"
+    }
+  },
+  "profile": {
+    "title": "My Profile",
+    "editProfile": "Edit Profile",
+    "name": "Full Name",
+    "email": "Email",
+    "country": "Country",
+    "language": "Preferred Language",
+    "saveChanges": "Save Changes",
+    "changePassword": "Change Password",
+    "dangerZone": "Danger Zone",
+    "deleteAccount": "Delete Account",
+    "memberSince": "Member since {{date}}"
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "dashboard": "Admin Dashboard",
+    "users": "Users",
+    "courses": "Courses",
+    "translations": "Translations",
+    "blog": "Blog",
+    "exams": "Exams",
+    "analytics": "Analytics",
+    "settings": "Settings",
+    "translationManager": {
+      "title": "Translation Manager",
+      "subtitle": "Manage multilingual content across the platform",
+      "addTranslation": "Add Translation",
+      "editTranslation": "Edit Translation",
+      "key": "Translation Key",
+      "languages": "Languages",
+      "actions": "Actions",
+      "missingTranslations": "Missing Translations",
+      "exportAll": "Export All",
+      "importFile": "Import File"
+    }
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "subtitle": "The page you're looking for doesn't exist.",
+      "backHome": "Back to Home"
+    },
+    "500": {
+      "title": "Server Error",
+      "subtitle": "Something went wrong on our end.",
+      "retry": "Try again"
+    },
+    "unauthorized": {
+      "title": "Access Denied",
+      "subtitle": "You don't have permission to view this page.",
+      "signIn": "Sign in to continue"
+    }
+  },
+  "footer": {
+    "tagline": "Empowering financial literacy globally.",
+    "links": {
+      "title": "Quick Links",
+      "home": "Home",
+      "courses": "Courses",
+      "blog": "Blog",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "disclaimer": "Disclaimer"
+    },
+    "social": {
+      "title": "Community",
+      "whatsapp": "WhatsApp Group",
+      "twitter": "Twitter",
+      "instagram": "Instagram"
+    },
+    "copyright": "© {{year}} NodLearn. All rights reserved."
+  },
+  "seo": {
+    "home": {
+      "title": "NodLearn | Premium Financial Education",
+      "description": "Learn how modern investments work with our free financial education covering stocks, blockchain, and real estate."
+    },
+    "dashboard": {
+      "title": "Dashboard | NodLearn",
+      "description": "Track your learning progress and continue your financial education journey."
+    },
+    "courses": {
+      "title": "Courses | NodLearn",
+      "description": "Explore our comprehensive financial education courses for beginners."
+    },
+    "about": {
+      "title": "About NodLearn",
+      "description": "Learn about our mission to make financial education accessible to everyone."
+    }
+  }
+}
